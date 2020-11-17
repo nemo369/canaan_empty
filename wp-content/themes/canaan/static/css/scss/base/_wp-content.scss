@@ -1,0 +1,65 @@
+
+  .wp-content {
+	  color: #2b2b2b;
+  // font-size: 1.375rem;
+  font-weight: 400;
+  // line-height: 2rem;
+  }
+  .wp-content pre {
+	  font: 1em/1.5rem "Andale Mono", "Lucida Console", monospace;
+  }
+  .wp-content h1{
+	  font-size: 3rem;
+  font-weight: 700;
+  line-height: 3rem;
+  }
+  .wp-content h2{
+	  font-size: 2rem;
+  font-weight: 700;
+  color: #602e84;
+  line-height: 48px;
+  }
+  .wp-content h3{
+	  font-size: 1.5rem;
+  }
+  .wp-content b, .wp-content strong {
+	  font-weight: bold;
+  }
+  
+  .wp-content p {
+	  margin:0 0 1.5rem 0;
+  color: #1f1f1f;
+  // font-size: 1.375rem;
+  font-weight: 400;
+  // line-height: 2rem;
+  }
+  .wp-content blockquote {
+	  margin:0 1.5rem 1.5rem 1.5rem;
+  }
+  .wp-content li ul, .wp-content li ol {
+	  margin:0 1.5rem;
+  }
+  .wp-content ul, .wp-content ol {
+	  margin:0 1.5rem 1.5rem 1.5rem;
+  }
+  .wp-content ul {
+	  list-style-type:disc;
+  }
+  .wp-content ol {
+	  list-style-type:decimal;
+  }
+  .wp-content ol ol {
+	  list-style: upper-alpha;
+  }
+  .wp-content ol ol ol {
+	  list-style: lower-roman;
+  }
+  .wp-content ol ol ol ol {
+	  list-style: lower-alpha;
+  }
+  
+  .wp-content img ,.wp-content svg{
+	  display: inline;
+	  width: auto;
+	  height: auto;
+  }
