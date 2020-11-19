@@ -6,7 +6,7 @@ if(!class_exists('canaan_conf')){
 }
  
  
- 
+include_once(dirname(__FILE__).'/wpack.php');
 include_once(dirname(__FILE__).'/canaan-functions.php');
 include_once(dirname(__FILE__).'/framework/framework.php');
 include_once(dirname(__FILE__).'/post_types/register_post_types.php');

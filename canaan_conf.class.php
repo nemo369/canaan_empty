@@ -7,14 +7,14 @@ class canaan_conf{
     * i.e. 'grc'
     * 
     * always change before WP install!
-    * never change after WP install
+* never change after WP install
      *
      * used in WP's wp-config.php
     * 
     * @var string
     */
 
-    public static $wpDBPrefix='grc';
+    public static $wpDBPrefix='';
 
     /*
      * current static versioning ID, used for filename changing for cache bypass and more
@@ -22,6 +22,7 @@ class canaan_conf{
     public static $staticVersionID=1;
     public static $isProduction=false;
     public static $carbonDir='/';
+    public static $wpackDir='/';
     public static $allowStaticVersioning=true;
     public static $WP_UPLOADS_URL=false;
     public static $WP_UPLOADS_PATH=false;
@@ -31,16 +32,6 @@ class canaan_conf{
 
     public static $static=false;    
     public static $isSafeLocalHost=false;
-
-    public static $currentTemplateName=false;
-    public static $fontSlugsToLoad=false;
-    public static $spritesSlugsToLoad=false;
-    public static $scriptsSlugsToLoad=false;
-    public static $cssSlugsToLoad=false;
-
-
-	static $loginScreenLogoType='theme';	
-	static $loginScreenLogoURL='backend/wp_login_logo.png';
 	
 	
 	/**
@@ -59,8 +50,10 @@ class canaan_conf{
 }
 
 if (defined('ABSPATH')) {
-    canaan_conf::$carbonDir = ABSPATH . '/wp-content/carbon';
+    canaan_conf::$carbonDir = ABSPATH . 'wp-content/carbon';
+    canaan_conf::$wpackDir = ABSPATH . 'wp-content/wpack';
 }
+
 
 
 

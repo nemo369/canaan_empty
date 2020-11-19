@@ -154,7 +154,7 @@ class canaan_image
 
     public function get_alt()
     {
-        if (key_exists('_wp_attachment_image_alt', $this->metaData)) {
+        if (is_array($this->metaData) && key_exists('_wp_attachment_image_alt', $this->metaData)) {
             return $this->metaData['_wp_attachment_image_alt'][0];
         }
 

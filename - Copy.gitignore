@@ -1,0 +1,24 @@
+/*
+!wp-content
+!.gitgnore
+!canaan_conf.class.php
+!package.json
+!wpackio.project.js
+!wpackio.server.js
+!postcss.config.js
+
+wp-content/*
+# !wp-content/carbon
+# !wp-content/wpack
+
+!wp-content/plugins
+wp-content/plugins/*
+!wp-content/plugins/my-plugins
+
+!wp-content/themes
+wp-content/themes/*
+!wp-content/themes/canaan
+
+
+wp-content/themes/node_modules
+

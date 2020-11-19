@@ -7,6 +7,11 @@ if ( !defined('ABSPATH') ){
 get_header();
 global $posts;
 echo '<br><br><h1 class="tac" style="font-size:50px">This is the New Bright and Shine CANAAN Theme</h1><br>';
+echo '<br><br><h2 class="tac" style="font-size:50px">for WPACIKO make suer to update wpaciko.server.js
+
+// Your WordPress development server address
+// This is super important
+    </h2><br>';
 echo '<main  class="wp-content">';
 echo '<ul>';
 $prefix = 'post_';

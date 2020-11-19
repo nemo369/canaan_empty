@@ -1,4 +1,6 @@
 $baseFontSize : 16;
+$black:#191919;
+$blue:blue;
 
 @function rem($pixels, $context: $baseFontSize) {
   @if (unitless($pixels)) {
