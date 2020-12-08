@@ -164,10 +164,11 @@ button {
 
 button,
 select {
-	/* 1 */
 	margin: 0;
-	padding: 0;
-	text-transform: none;
+    padding: 0;
+    color: inherit;
+    text-transform: none;
+    font: inherit;
 }
 
 button:-moz-focusring,
@@ -178,7 +179,7 @@ button:-moz-focusring,
 }
 
 button:focus {
-	outline: 0;
+	// outline: 0;
 }
 
 textarea {
@@ -221,33 +222,14 @@ a {
 	transition: all 0.2s ease-in-out;
 }
 
-textarea::-webkit-input-placeholder,
-input::-webkit-input-placeholder {
+textarea::placeholder,
+input::placeholder {
 	/* WebKit browsers */
-	color: #000;
-	font-size: 15px;
+	color: inherit;
+	font: inherit;
 }
 
-textarea:-moz-placeholder,
-input:-moz-placeholder {
-	/* Mozilla Firefox 4 to 18 */
-	color: #000;
-	font-size: 15px;
-}
 
-textarea::-moz-placeholder,
-input::-moz-placeholder {
-	/* Mozilla Firefox 19+ */
-	color: #000;
-	font-size: 15px;
-}
-
-textarea:-ms-input-placeholder,
-input:-ms-input-placeholder {
-	/* Internet Explorer 10+ */
-	color: #000;
-	font-size: 15px;
-}
 
 a {
 	text-decoration: none;
@@ -256,4 +238,8 @@ a {
 
 * {
 	box-sizing: border-box;
+}
+strong,
+b{
+	font-weight: 700;
 }
