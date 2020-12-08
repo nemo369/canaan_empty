@@ -8,13 +8,13 @@ if (!defined('ABSPATH')) {
 
     <head>
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-    <link rel="shortcut icon" href="<?php echo canaan_static(); ?>/images/favicon.png" />
-    <link rel="apple-touch-icon" href="<?php echo canaan_static(); ?>/images/icon-touch.png"/>
+    <link rel="shortcut icon" href="<?php echo get_site_static(); ?>/images/favicon.png" />
+    <link rel="apple-touch-icon" href="<?php echo get_site_static(); ?>/images/icon-touch.png"/>
 
     <?php get_template_part('parts/ga-tracking'); ?>
     <?php // get_template_part('parts/font-loader');?>
     <script>
-    var canaanData ={
+    var __mainData ={
         nonce: '<?php echo wp_create_nonce('register_user'); ?>',
             isHP: <?php echo (is_front_page() ? 'true' : 'false'); ?>,
 			homeUrl: '<?php echo home_url(); ?>',

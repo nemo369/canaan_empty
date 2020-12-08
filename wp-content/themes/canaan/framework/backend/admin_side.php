@@ -28,7 +28,6 @@ function mwpages_admin_menu_cb()
         'Static Versions',
         'Static Versions',
         'manage_options',
-        'mwpage_static_versions',
         'mwpage_out_page_cb'
     );
 }
@@ -47,68 +46,6 @@ function mwpage_fetch_events_out_page_cb()
         return;
     }
     include(dirname(__FILE__).'/'.$plugin_page.'.php');
-}
-
-
-
-
-
-
-add_action( 'admin_enqueue_scripts', 'canaan_enqueue_my_script',9999 );
-
-function canaan_enqueue_my_script( $page ) {
-    
-    wp_enqueue_script( 'my-script', canaan_static('framework/backend/js/backend.js'), null, 3, true );
-}
-
-
- add_action( 'admin_footer', 'canaan_print_images_dimin_cb' );
- function canaan_print_images_dimin_cb(){
-     
-     $data=[];
-     $args = array('post_type'=>'attachment','numberposts'=>-1,'post_status'=>null);
-   $attachments = get_posts($args);
-    if($attachments){
-          foreach($attachments as $attachment){
-             $img=new canaan_image($attachment->ID);
-             if($img){
-                 $data[$attachment->ID]=[$img->get_width(),$img->get_height()];
-             }
-            }
-      }
-      
-?>
-<script>
-    
-    var canaanAttachments=<?php echo json_encode($data); ?>;
-    var noImgSrch='<?php echo canaan_static('framework/backend/img/noimg.jpg'); ?>';
-   </script>
-   
-   <style>
-       
-       .canaan_error{
-           display: block; width:100%; font-weight:bold; margin-top:10px; color:red; font-size: 20px;
-       }
-       .block-editor .cf-field.cf-complex{
-           border:1px solid #4d555d;
-               margin-bottom: 15px;
-       }
-       .block-editor .cf-field.cf-complex .cf-field.cf-complex{
-             border:1px solid #e2e4e7;
-               margin-bottom: 0;
-       }
-       body .cf-complex__group-head{
-           background-color: #4d555d;
-       }
-       body .cf-field.cf-complex .cf-field.cf-complex .cf-complex__group-head{
-             background-color: #fbfbfc;
-       }
-       .cf-container-user-meta .cf-container__fields>.cf-field>.cf-field__head, .term-php .cf-container__fields>.cf-field>.cf-field__head{
-           left:auto; right:0;
-       }
-   </style>
- 
-<?php
 }
 
 

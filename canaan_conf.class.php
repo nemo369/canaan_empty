@@ -32,22 +32,9 @@ class canaan_conf{
 
     public static $static=false;    
     public static $isSafeLocalHost=false;
+    public static $IN_MAINTENANCE=false;
 	
 	
-	/**
-	 * an array of strings used to forcefully block WP "problematic" features
-	 * please block all unneeded functionality 
-	 */
-	static $wpFeatures_to_lock=array(
-			'xmlrpc.php',
-			'wp-trackback.php',
-			'wp-signup.php',
-			'wp-mail.php',
-			'wp-links-opml.php',
-			'wp-activate.php',
-			'wp-comments-post.php',
-			);
-}
 
 if (defined('ABSPATH')) {
     canaan_conf::$carbonDir = ABSPATH . 'wp-content/carbon';

@@ -4,39 +4,44 @@ defined('ABSPATH') || die();
 include_once(dirname(__FILE__) . '/components.php');
 
 
-function canaan_posted_on()
+function canaan_get_menu_array($current_menu = 'Main Menu')
 {
-    $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-    if (get_the_time('U') !== get_the_modified_time('U')) {
-        $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+
+    $menuLocations = get_nav_menu_locations();
+    $menuID = $menuLocations[$current_menu];
+    $menu_array = wp_get_nav_menu_items($menuID);
+    $menu = array();
+    foreach ((array) $menu_array as $m) {
+        if (empty($m->menu_item_parent)) {
+            $menu[$m->ID] = array();
+            $menu[$m->ID]['ID'] = $m->ID;
+            $menu[$m->ID]['title'] = $m->title;
+            $menu[$m->ID]['url'] = $m->url;
+            $menu[$m->ID]['classes'] = $m->classes;
+            $menu[$m->ID]['type'] = $m->type;
+            $menu[$m->ID]['children'] = populate_children($menu_array, $m);
+    
+        }
     }
 
-    $time_string = sprintf(
-        $time_string,
-        esc_attr(get_the_date(DATE_W3C)),
-        esc_html(get_the_date()),
-        esc_attr(get_the_modified_date(DATE_W3C)),
-        esc_html(get_the_modified_date())
-    );
-
-    $posted_on = sprintf(
-        /* translators: %s: post date. */
-        esc_html_x('Posted on %s', 'post date', 'canaan'),
-        '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
-    );
-
-    echo '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
-
+    return $menu;
 }
-
-function canaan_posted_by()
+function populate_children($menu_array, $menu_item)
 {
-    $byline = sprintf(
-        /* translators: %s: post author. */
-        esc_html_x('by %s', 'post author', 'canaan'),
-        '<span class="author vcard"><a class="url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a></span>'
-    );
-
-    echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
-
+    $children = array();
+    if (!empty($menu_array)) {
+        foreach ($menu_array as $k => $m) {
+            if ($m->menu_item_parent == $menu_item->ID) {
+                $children[$m->ID] = array();
+                $children[$m->ID]['ID'] = $m->ID;
+                $children[$m->ID]['title'] = $m->title;
+                $children[$m->ID]['url'] = $m->url;
+                $children[$m->ID]['classes'] = $m->classes;
+                $children[$m->ID]['type'] = $m->type;
+                unset($menu_array[$k]);
+                $children[$m->ID]['children'] = populate_children($menu_array, $m);
+            }
+        }
+    };
+    return $children;
 }

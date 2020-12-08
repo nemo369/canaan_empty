@@ -3,9 +3,7 @@
 !.gitgnore
 !canaan_conf.class.php
 !package.json
-!wpackio.project.js
-!wpackio.server.js
-!postcss.config.js
+!maintenance.html
 
 wp-content/*
 # !wp-content/carbon

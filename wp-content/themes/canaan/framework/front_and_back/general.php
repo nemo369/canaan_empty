@@ -8,6 +8,6 @@ include_once(dirname(__FILE__).'/pll.php');
 include_once(dirname(__FILE__).'/ajax.php');
 
 
-function canaan_static(){
-	return canaan_conf::$static; 
+function canaan_static($root = ''){
+	return get_template_directory_uri().'/static' .($root ? '/'.$root : ''); 
 }
