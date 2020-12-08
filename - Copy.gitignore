@@ -4,6 +4,7 @@
 !canaan_conf.class.php
 !package.json
 !maintenance.html
+!README.md
 
 wp-content/*
 # !wp-content/carbon
