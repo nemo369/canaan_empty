@@ -1,21 +1,22 @@
 <?php
 defined('ABSPATH') || die();
 
+function get_img_html($p, $lazy = true, $size = 'full')
+{
+    $img = new canaan_image($p, $size);
 
-function get_img_html($p, $lazy= true){
-
-    $img= new canaan_image($p);
-    if(!$img) return;
-    if($lazy = true){
-
-        echo '<img loading="lazy" data-src="'.$img->get_sized_url().'" class="lazyload" width="'.$img->get_width().'" height="'.$img->get_height().'" alt="'.esc_attr( $img->get_alt()).'">';
-    } else{
-        echo '<img src="'.$img->get_sized_url().'" alt="'.esc_attr( $img->get_alt()).'">';
+    if (!$img || !$img->isValid()) return;
+    if ($lazy) {
+        // return '<img loading="lazy" data-src="'.$img->get_sized_url().'" class="lazyload" width="'.$img->get_width().'" height="'.$img->get_height().'" alt="'.esc_attr( $img->get_alt()).'">';
+        return '<img loading="lazy" src="' . $img->get_sized_url() . '"  width="' . $img->get_width() . '" height="' . $img->get_height() . '" alt="' . esc_attr($img->get_alt()) . '">';
+    } else {
+        return '<img  src="' . $img->get_sized_url() . '" alt="' . esc_attr($img->get_alt()) . '" >';
     }
 }
-function get_img_src($id){
-    $img= new canaan_image($id);
-    if(!$img) return;
+function get_img_src($id)
+{
+    $img = new canaan_image($id);
+    if (!$img) return;
     return $img->get_sized_url();
 }
 
@@ -34,7 +35,7 @@ class canaan_image
 
     function __construct($img_id)
     {
-        
+
         $img_id = (int)$img_id;
         if (is_numeric($img_id)) {
             $img_ind = (int)$img_id;
@@ -106,7 +107,7 @@ class canaan_image
         }
 
         if (preg_match('/(.*).(jpg|png)\z/', $this->src_full, $matches) && count($matches) == 3) {
-            return $matches[1].'_wo_'.$width.'_'.$height.'.'.$matches[2];
+            return $matches[1] . '_wo_' . $width . '_' . $height . '.' . $matches[2];
         }
 
         return $this->src_full;
@@ -166,15 +167,15 @@ class canaan_image
         return $this->src_full;
     }
 
-    public function get_img_tag_by_size($size_slug, $addClass = '', $islazey=false)
+    public function get_img_tag_by_size($size_slug, $addClass = '', $islazey = false)
     {
 
-       $img=wp_get_attachment_image_src($this->ID, $size_slug);
+        $img = wp_get_attachment_image_src($this->ID, $size_slug);
 
-            if ($img===false || !is_array($img))
-                    $url= $this->src_full;
-            else
-                    $url= $img[0];		
+        if ($img === false || !is_array($img))
+            $url = $this->src_full;
+        else
+            $url = $img[0];
 
 
         if ($url == false) {
@@ -184,23 +185,22 @@ class canaan_image
         $alt = $this->get_alt();
         $title = $this->get_title();
 
-        $html = '<img '.($islazey ? 'loading="lazy" ' : '').' src="'.esc_attr($url).'" ';
-        if (!empty ($addClass)) {
-            $html .= ' class="'.$addClass.'" ';
+        $html = '<img ' . ($islazey ? 'loading="lazy" ' : '') . ' src="' . esc_attr($url) . '" ';
+        if (!empty($addClass)) {
+            $html .= ' class="' . $addClass . '" ';
         }
 
-        if ($alt != false && !empty ($alt)) {
-            $html .= ' alt="'.esc_attr($alt).'" ';
+        if ($alt != false && !empty($alt)) {
+            $html .= ' alt="' . esc_attr($alt) . '" ';
         }
 
 
         $html .= ' />';
 
         return $html;
-
     }
 
-    public function get_img_tag_sized($width = false, $height = false, $addClass = '', $islazey=false)
+    public function get_img_tag_sized($width = false, $height = false, $addClass = '', $islazey = false)
     {
 
         $url = $this->get_sized_url($width, $height);
@@ -212,26 +212,25 @@ class canaan_image
         $alt = $this->get_alt();
         $title = $this->get_title();
 
-        $html = '<img src="'.esc_attr($url).'" ';
-        if (!empty ($addClass)) {
-            $html .= ' class="'.$addClass.'" ';
+        $html = '<img src="' . esc_attr($url) . '" ';
+        if (!empty($addClass)) {
+            $html .= ' class="' . $addClass . '" ';
         }
 
-        if ($alt != false && !empty ($alt)) {
-            $html .= ' alt="'.esc_attr($alt).'" ';
+        if ($alt != false && !empty($alt)) {
+            $html .= ' alt="' . esc_attr($alt) . '" ';
         }
 
-        if ($title != false && !empty ($title)) {
-            $html .= ' title="'.esc_attr($title).'" ';
+        if ($title != false && !empty($title)) {
+            $html .= ' title="' . esc_attr($title) . '" ';
         }
 
-        $html .= ' '.($islazey ? 'loading="lazy" ' : '').' />';
+        $html .= ' ' . ($islazey ? 'loading="lazy" ' : '') . ' />';
 
         return $html;
-
     }
 
-    public function get_html_sized_wcaption($size_slug = null, $addClass ='', $islazey = false)
+    public function get_html_sized_wcaption($size_slug = null, $addClass = '', $islazey = false)
     {
 
         $img = wp_get_attachment_image_src($this->ID, $size_slug);
@@ -251,32 +250,29 @@ class canaan_image
             $html .= '<div class="img_w_caption">';
         }
 
-        $html .= '<img src="'.esc_attr($url).'" ';
-        if (!empty ($addClass)) {
-            $html .= ' class="'.$addClass.'" ';
+        $html .= '<img src="' . esc_attr($url) . '" ';
+        if (!empty($addClass)) {
+            $html .= ' class="' . $addClass . '" ';
         }
 
-        if ($alt != false && !empty ($alt)) {
-            $html .= ' alt="'.esc_attr($alt).'" ';
+        if ($alt != false && !empty($alt)) {
+            $html .= ' alt="' . esc_attr($alt) . '" ';
         }
 
-        if ($title != false && !empty ($title)) {
-            $html .= ' title="'.esc_attr($title).'" ';
+        if ($title != false && !empty($title)) {
+            $html .= ' title="' . esc_attr($title) . '" ';
         }
 
-        $html .= ' '.($islazey ? 'loading="lazy" ' : '').' />';
+        $html .= ' ' . ($islazey ? 'loading="lazy" ' : '') . ' />';
 
         $html .= ' />';
 
 
         if (mb_strlen($caption)) {
-            $html .= '<p class="img_caption_gen">'.$caption.'</p></div>';
+            $html .= '<p class="img_caption_gen">' . $caption . '</p></div>';
         }
 
 
         return $html;
     }
 }
-
-
-
