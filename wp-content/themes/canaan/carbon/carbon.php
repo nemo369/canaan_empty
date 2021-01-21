@@ -7,7 +7,7 @@ use Carbon_Fields\Field;
 
 add_action( 'after_setup_theme', 'crb_load' );
 function crb_load() {
-    require_once( canaan_conf::$carbonDir.'/vendor/autoload.php' );
+    require_once( canaan_conf::$carbonDir.'/autoload.php' );
     \Carbon_Fields\Carbon_Fields::boot();
 }
 
