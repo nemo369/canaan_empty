@@ -2,18 +2,18 @@
 This is a starter kit for wordpress theme and plugins devleop. It's a result of many projects and template that was built over the years.
 
 ## steps to get strated
-1.````wp core download````
-1.````rm -rf wp-content/plugins````
-1.````rm -rf wp-content/theme````
-1.````mkdir wp-content/plugins````
-1.````mkdir wp-content/theme````
-1.````git clone https://github.com/nemo369/canaan_empty.git temp````
-1.````cp -r temp/* .````
-1.````rm -rf temp````
-1.````rm -rf .git````
-1.````composer install````
-1.````npm install````
-1.````git init````
+1. ````wp core download````
+1. ````rm -rf wp-content/plugins````
+1. ````rm -rf wp-content/theme````
+1. ````mkdir wp-content/plugins````
+1. ````mkdir wp-content/theme````
+1. ````git clone https://github.com/nemo369/canaan_empty.git temp````
+1. ````cp -r temp/* .````
+1. ````rm -rf temp````
+1. ````rm -rf .git````
+1. ````composer install````
+1. ````npm install````
+1. ````git init````
 
 ## Assets
 
