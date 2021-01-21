@@ -35,7 +35,7 @@ class canaan_conf{
     public static $IN_MAINTENANCE=false;
 	
 	
-
+}
 if (defined('ABSPATH')) {
     canaan_conf::$carbonDir = ABSPATH . 'wp-content/carbon';
     canaan_conf::$wpackDir = ABSPATH . 'wp-content/wpack';

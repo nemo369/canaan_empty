@@ -22,7 +22,18 @@ add_action('wp_loaded', function () {
 add_action('init', 'canaan_init');
 function canaan_init()
 {
-    wp_deregister_script('jquery');
+  
+      
+        global $pagenow;
+        if (defined('WP_DEBUG')) {
+            canaan_conf::$staticVersionID = time();
+        }
+        if (is_admin() ||  'wp-login.php' === $pagenow ) {
+            return;
+        }
+        wp_dequeue_script('jquery');
+        wp_deregister_script('jquery');
+    
 }
 
 

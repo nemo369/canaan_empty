@@ -45,3 +45,12 @@ function populate_children($menu_array, $menu_item)
     };
     return $children;
 }
+
+
+function order_posts_by_menu_order($query)
+{
+    if (!is_admin() && $query->is_main_query()) {
+            $query->set('orderby','menu_order');
+    }
+}
+add_action('pre_get_posts', 'order_posts_by_menu_order');

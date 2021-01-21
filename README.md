@@ -1,5 +1,7 @@
 # canaan-devleop WP theme starter KIT
 
+1.wp core download
+1.
 This is a starter kit for wordpress theme and plugins devleop. It's a result of many projects and template that was built over the years.
 
 ## Assets
