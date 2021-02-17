@@ -9,11 +9,11 @@ function crb_attach_theme_options()
 {
 
     $prefix = 'misc_';
-    $metaBox = Container::make('theme_options', 'שונות');
+    $metaBox = Container::make('theme_options', 'Miscellaneous');
     $metaBox->add_tab('כללי', array(
-        Field::make('complex', "{$prefix}email_accounts", 'כתובות המיילים של האתר')
+        Field::make('complex', "{$prefix}email_accounts", 'E-mails for site notfications')
             ->add_fields(array(
-                Field::make('text', 'email', 'כתובת מייל')->set_attribute( 'type', 'email' )->set_attribute( 'placeholder', 'test@test.com' ),
+                Field::make('text', 'email', 'E-mail')->set_attribute( 'type', 'email' )->set_attribute( 'placeholder', 'test@test.com' ),
             ))
     ));
 }

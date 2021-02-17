@@ -1,5 +1,15 @@
 # ignore everything in the root except the "wp-content" directory.
-!wp-content/
+/*
+!wp-content
+
+!.gitgnore
+!canaan_conf.class.php
+!package.json
+!maintenance.html
+!README.md
+!.htaccess
+!composer.json
+!postcss.config.js
 
 # ignore everything in the "wp-content" directory, except:
 # "mu-plugins", "plugins", "themes" directory
@@ -22,3 +32,4 @@ vendor/
 *.log
 *.sql
 *.sqlite
+node_modules

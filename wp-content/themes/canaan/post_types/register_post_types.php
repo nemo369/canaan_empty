@@ -8,9 +8,9 @@ if ( !defined('ABSPATH') ){
 
 add_action( 'init', 'canaan_register_post_types_cb' );
 function canaan_register_post_types_cb() {
-	$args = get_register_taxonomy_args('כותבים','writer','category',['menu_icon' => 'dashicons-carrot',],'ים');
-	register_taxonomy( $args['rewrite']['slug'],$args['rewrite']['slug'], $args );
-	register_taxonomy_for_object_type('writer','post');
+	// $args = get_register_taxonomy_args('כותבים','writer','category',['menu_icon' => 'dashicons-carrot',],'ים');
+	// register_taxonomy( $args['rewrite']['slug'],$args['rewrite']['slug'], $args );
+	// register_taxonomy_for_object_type('writer','post');
 
 	// $args = get_register_post_type_args('כותבים','writer',['menu_icon' => 'dashicons-carrot',],'ים');
 	// register_post_type( $args['rewrite']['slug'], $args );
@@ -51,22 +51,22 @@ function get_register_post_type_args($name, $slug, $args =[], $plurel= 'ים'){
 	return $return;
 }
 
-function get_register_post_type_labels($name, $plurel= 'ים'){
+function get_register_post_type_labels($name, $plurel= 's'){
 	$labels = array(
 		'name'               => $name,
 		'singular_name'      => $name,
 		'menu_name'          => $name.$plurel,
 		'name_admin_bar'     => $name,
-		'add_new'            => 'הוסף '.$name.' חדש',
-		'add_new_item'       => 'הוסף '.$name.' חדש',
-		'new_item'           => ''.$name.' חדש',
-		'edit_item'          => 'עריכה',
-		'view_item'          => 'הצגה',
-		'all_items'          => 'כל ה'.$name.$plurel,
-		'search_items'       => 'חיפוש',
-		'parent_item_colon'  => ''.$name.' אב',
-		'not_found'          => 'לא נמצאו תוצאות',
-		'not_found_in_trash' => 'לא נמצאו תוצאות',
+		// 'add_new'            => 'הוסף '.$name.' חדש',
+		// 'add_new_item'       => 'הוסף '.$name.' חדש',
+		// 'new_item'           => ''.$name.' חדש',
+		// 'edit_item'          => 'עריכה',
+		// 'view_item'          => 'הצגה',
+		// 'all_items'          => 'כל ה'.$name.$plurel,
+		// 'search_items'       => 'חיפוש',
+		// 'parent_item_colon'  => ''.$name.' אב',
+		// 'not_found'          => 'לא נמצאו תוצאות',
+		// 'not_found_in_trash' => 'לא נמצאו תוצאות',
 	);
 	return $labels;
 }

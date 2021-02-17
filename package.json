@@ -1,12 +1,11 @@
 {
-  "name": "adam_milo_multisite",
+  "name": "canaan_assets",
   "version": "1.0.0",
   "description": "cross sites JS and Css",
   "main": "index.js",
   "scripts": {
-    "watch": "parcel watch wp-content/theme/canaan/static/js/index.js",
-    "dev": "parcel wp-content/theme/canaanstatic/js/index.js",
-    "build": "NODE_ENV=production parcel build static/js/index.js"
+    "dev": "parcel watch wp-content/themes/canaan/static/js/index.js --out-dir wp-content/themes/canaan/dist",
+    "build": "NODE_ENV=production parcel build wp-content/themes/canaan/static/js/index.js --out-dir wp-content/themes/canaan/dist --no-source-maps"
   },
   "author": "",
   "license": "ISC",
@@ -15,3 +14,5 @@
     "sass": "^1.30.0"
   }
 }
+
+

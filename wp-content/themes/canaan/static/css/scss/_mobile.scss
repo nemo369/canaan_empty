@@ -1,0 +1,24 @@
+.mobile {
+    display: none;
+}
+@media #{$mobile} {
+    .mobile {
+        display: block;
+        &.d-flex {
+            display: flex;
+        }
+    }
+    .desktop {
+        display: none;
+    }
+    .m-padding{
+        padding-right: $mobile-padding;
+        padding-left: $mobile-padding;
+    }
+    .m-column {
+        flex-direction: column;
+    }
+    .m-block{
+        display: block;
+    }
+}

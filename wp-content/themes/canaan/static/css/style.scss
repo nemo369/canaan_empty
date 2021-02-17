@@ -1,20 +1,22 @@
 // Base: animations, base, typography, and utilies.
-@import './scss/base/var.scss';
-@import './scss/base/utilites.scss';
-@import './scss/base/reset.scss';
-@import './scss/base/general';
-@import './scss/base/fonts.scss';
-@import './scss/base/wp-content.scss';
+@import './scss/base/_var.scss';
+@import './scss/base/_utilites.scss';
+@import './scss/base/_reset.scss';
+@import './scss/base/_general';
+@import './scss/base/_fonts.scss';
+@import './scss/base/_wp-content.scss';
+@import './scss/base/_common.scss';
 
 
 // Layout: Header, footer, grid, navigation
-@import './scss/layout/footer.scss';
-@import './scss/layout/header.scss';
-@import './scss/layout/menu.scss';
+@import './scss/layout/_footer.scss';
+@import './scss/layout/_header.scss';
+@import './scss/layout/_menu.scss';
 // Pages: Have a single scss for each specific page
 
-@import './scss/pages/home.scss';
-@import './scss/pages/page.scss';
+@import './scss/pages/_home.scss';
+@import './scss/pages/_page.scss';
+@import './scss/_mobile.scss';
 // @import './scss/pages/post.scss';
 // @import './scss/pages/archive.scss';
 

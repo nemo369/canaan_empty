@@ -139,7 +139,7 @@ function rd_duplicate_post_as_draft(){
 		 * finally, redirect to the edit post screen for the new draft
 		 */
         // wp_redirect( admin_url( 'post.php?action=edit&post=' . $new_post_id ) );
-        wp_redirect( admin_url( 'edit.php' ) );
+		wp_redirect( admin_url( 'post.php?action=edit&post=' . $new_post_id ) );
 		exit;
 	} else {
 		wp_die('Post creation failed, could not find original post: ' . $post_id);
@@ -152,7 +152,7 @@ add_action( 'admin_action_rd_duplicate_post_as_draft', 'rd_duplicate_post_as_dra
  */
 function rd_duplicate_post_link( $actions, $post ) {
 	if (current_user_can('edit_posts')) {
-		$actions['duplicate'] = '<a href="' . wp_nonce_url('admin.php?action=rd_duplicate_post_as_draft&post=' . $post->ID, basename(__FILE__), 'duplicate_nonce' ) . '" title="Duplicate this item" rel="permalink">שכפל אותי</a>';
+		$actions['duplicate'] = '<a href="' . wp_nonce_url('admin.php?action=rd_duplicate_post_as_draft&post=' . $post->ID, basename(__FILE__), 'duplicate_nonce' ) . '" title="Duplicate this item" rel="permalink">Duplicate me</a>';
 	}
 	return $actions;
 }

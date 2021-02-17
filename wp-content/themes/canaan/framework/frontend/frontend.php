@@ -2,13 +2,14 @@
 defined('ABSPATH') || die();
 
 include_once(dirname(__FILE__) . '/components.php');
+include_once(dirname(__FILE__) . '/svg.php');
 
 
 function canaan_get_menu_array($current_menu = 'Main Menu')
 {
 
     $menuLocations = get_nav_menu_locations();
-    $menuID = $menuLocations[$current_menu];
+    $menuID = isset($menuLocations[$current_menu]) ? $menuLocations[$current_menu] : null;
     $menu_array = wp_get_nav_menu_items($menuID);
     $menu = array();
     foreach ((array) $menu_array as $m) {

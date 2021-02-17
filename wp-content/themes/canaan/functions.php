@@ -1,8 +1,8 @@
 <?php
 defined('ABSPATH') || die();
 if (!class_exists('canaan_conf')) {
-    if (file_exists(dirname(__FILE__) . '/canaan_conf.class.php')) {
-        include dirname(__FILE__) . '/canaan_conf.class.php';
+    if (file_exists(ABSPATH . '/canaan_conf.class.php')) {
+        include ABSPATH . '/canaan_conf.class.php';
     } else {
         die('wrong instaliton');
     }
