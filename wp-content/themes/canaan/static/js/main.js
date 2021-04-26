@@ -1,7 +1,6 @@
 import 'vite/dynamic-import-polyfill'
+import '../css/tailwind.css';
 
-// import '../css/style.scss';
-// import './cross-site/images'
 
 const components = [
   // {

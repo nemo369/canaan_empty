@@ -17,13 +17,6 @@ defined('ABSPATH') || die();
 <?php
 wp_footer();
 echo '<a href="https://naamanfrenkel.dev/" style="display:none; font-size:0px; color:transparent; visibility:hidden;"> Made By Naaman Frenkel; מתכנת נעמן פרנקל </a>';
-if (WP_DEBUG === true) {
-?>
-    <!-- if development -->
-    <script type="module" src="http://localhost:3000/@vite/client"></script>
-    <script type="module" src="http://localhost:3000/main.js"></script>
-<?php
-}
 
 ?>
 </body>

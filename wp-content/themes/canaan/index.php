@@ -6,7 +6,7 @@ if ( !defined('ABSPATH') ){
  
 get_header();
 global $posts;
-echo '<br><br><h1 class="tac" style="font-size:50px">This is the New Bright and Shine CANAAN Theme</h1><br>';
+echo '<h1 class="text-center text-5xl py-16 px-6 bg-green-100">This is the New Bright and Shine CANAAN Theme</h1>';
 echo '<main  class="wp-content">';
 echo '<ul>';
 $prefix = 'post_';

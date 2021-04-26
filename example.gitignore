@@ -10,6 +10,9 @@
 !.htaccess
 !composer.json
 !postcss.config.js
+!wp-config.php
+!*.js
+!scripts
 
 # ignore everything in the "wp-content" directory, except:
 # "mu-plugins", "plugins", "themes" directory

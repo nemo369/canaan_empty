@@ -15,9 +15,10 @@ mkdir wp-content/themes
 echo "Cloning your Canaan Project"
 
 git clone git@github.com:nemo369/canaan_empty.git temp
-rsync -vua --delete-after temp/ .
+rsync -vua temp/ .
 rm -rf temp
 rm -rf .git
+rm wp-config-sample.php
 
 composer install --no-dev --optimize-autoloader
 npm install

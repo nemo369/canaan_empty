@@ -88,9 +88,16 @@ function prefix_nav_menu_classes($items, $menu, $args)
  */
 function vertias_enqueue_script()
 {
-
-    wp_enqueue_style('vertias', get_template_directory_uri() . '/dist/index.css', [], canaan_conf::$staticVersionID);
-    wp_enqueue_script('vertias', get_template_directory_uri() . '/dist/index.js', [], canaan_conf::$staticVersionID, true);
+    if (!$_ENV['IS_DEV']) {
+        wp_enqueue_style('vertias', get_template_directory_uri() . '/dist/index.css', [], canaan_conf::$staticVersionID);
+        wp_enqueue_script('vertias', get_template_directory_uri() . '/dist/index.js', [], canaan_conf::$staticVersionID, true);
+    } else{
+        ?>
+        <!-- if development -->
+        <script type="module" src="http://localhost:3000/@vite/client"></script>
+        <script type="module" src="http://localhost:3000/wp-content/themes/canaan/static/js/main.js"></script>
+    <?php
+    }
 }
 
 add_action('wp_enqueue_scripts', 'vertias_enqueue_script');

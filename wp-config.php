@@ -1,7 +1,7 @@
 <?php 
 require_once(__DIR__ . '/vendor/autoload.php');
-(new \Dotenv\Dotenv(__DIR__.'/../'))->load();
-
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 
 /**
@@ -25,10 +25,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', getenv('DB_NAME'));
-define('DB_USER', getenv('DB_USER'));
-define('DB_PASSWORD', getenv('DB_PASSWORD'));
-define('DB_HOST', getenv('DB_HOST'));
+define('DB_NAME', $_ENV['DB_NAME']);
+define('DB_USER', $_ENV['DB_USER']);
+define('DB_PASSWORD', $_ENV['DB_PASSWORD']);
+define('DB_HOST', $_ENV['DB_HOST']);
 
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
@@ -62,7 +62,7 @@ define( 'NONCE_SALT',       ',0NQwdT$$2V^yCh;VM~x2nW_J{oPhOt@7<:<,ccG/N~~Vga.$YC
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
  */
-$table_prefix = getenv('DB_PREFIX');
+$table_prefix = $_ENV['DB_PREFIX'];
 
 /**
  * For developers: WordPress debugging mode.
@@ -76,7 +76,7 @@ $table_prefix = getenv('DB_PREFIX');
  *
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', getenv('WP_DEBUG') );
+define( 'WP_DEBUG', $_ENV['WP_DEBUG'] );
 
 
 
