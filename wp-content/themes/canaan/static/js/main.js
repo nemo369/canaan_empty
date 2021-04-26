@@ -1,5 +1,7 @@
-import '../css/style.scss';
-import './cross-site/images'
+import 'vite/dynamic-import-polyfill'
+
+// import '../css/style.scss';
+// import './cross-site/images'
 
 const components = [
   // {

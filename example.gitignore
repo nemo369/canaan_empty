@@ -33,3 +33,4 @@ vendor/
 *.sql
 *.sqlite
 node_modules
+.env

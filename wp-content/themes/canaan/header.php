@@ -3,27 +3,27 @@ if (!defined('ABSPATH')) {
     die();
 }
 ?>
-    <!DOCTYPE html>
-    <html <?php language_attributes(); ?>>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
 
-    <head>
+<head>
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-    <link rel="shortcut icon" href="<?php echo get_site_static(); ?>/images/favicon.png" />
-    <link rel="apple-touch-icon" href="<?php echo get_site_static(); ?>/images/icon-touch.png"/>
-
+    <?php // get_template_part('parts/favicon'); 
+    ?>
     <?php get_template_part('parts/ga-tracking'); ?>
-    <?php // get_template_part('parts/font-loader');?>
+    <?php // get_template_part('parts/font-loader');
+    ?>
     <script>
-    var __mainData ={
-        nonce: '<?php echo wp_create_nonce('register_user'); ?>',
+        var __mainData = {
+            nonce: '<?php echo wp_create_nonce('register_user'); ?>',
             isHP: <?php echo (is_front_page() ? 'true' : 'false'); ?>,
-			homeUrl: '<?php echo home_url(); ?>',
-			ajaxUrl : '<?php echo admin_url('admin-ajax.php'); ?>',
-			isRtl : <?php echo is_rtl()?'true':'false' ?>,
-            loadMore :false,
-            postsPerPage: <?php echo get_option( 'posts_per_page' );?>,
-            offset: <?php echo get_option( 'posts_per_page' );?>,
-    }
+            homeUrl: '<?php echo home_url(); ?>',
+            ajaxUrl: '<?php echo admin_url('admin-ajax.php'); ?>',
+            isRtl: <?php echo is_rtl() ? 'true' : 'false' ?>,
+            loadMore: false,
+            postsPerPage: <?php echo get_option('posts_per_page'); ?>,
+            offset: <?php echo get_option('posts_per_page'); ?>,
+        }
     </script>
 
     <meta charset="<?php bloginfo('charset'); ?>" />
@@ -32,15 +32,14 @@ if (!defined('ABSPATH')) {
     <meta name="generator" content="Naaman Frenkel using WordPress">
     <title><?php wp_title('|', true, 'right'); ?></title>
 
-            <?php
-            wp_head();
-            ?>
-    </head>
+    <?php
+    wp_head();
+    ?>
+</head>
 
-    <body <?php body_class(); ?>>
-        <div id="app">
-            <div class="sitcky-footer">
-                <header>
+<body <?php body_class(); ?>>
+    <div id="app">
+        <div class="sitcky-footer">
+            <header>
 
-                </header>
-
+            </header>

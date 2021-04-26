@@ -38,7 +38,7 @@ function canaan_init()
 
 
     global $pagenow;
-    if (defined('WP_DEBUG')) {
+    if (WP_DEBUG === true) {
         canaan_conf::$staticVersionID = time();
     }
     if (is_admin() ||  'wp-login.php' === $pagenow) {

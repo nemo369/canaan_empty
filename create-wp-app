@@ -1,0 +1,27 @@
+#!/bin/bash
+
+echo "enter ypur WP Project name:"
+
+read name
+
+mkdir $name
+cd $name
+wp core download
+rm -rf wp-content/plugins
+rm -rf wp-content/themes
+mkdir wp-content/plugins
+mkdir wp-content/themes
+
+echo "Cloning your Canaan Project"
+
+git clone git@github.com:nemo369/canaan_empty.git temp
+rsync -vua --delete-after temp/ .
+rm -rf temp
+rm -rf .git
+
+composer install --no-dev --optimize-autoloader
+npm install
+mv example.gitignore .gitignore
+git init
+
+

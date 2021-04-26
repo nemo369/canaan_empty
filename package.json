@@ -1,18 +1,12 @@
 {
-  "name": "canaan_assets",
-  "version": "1.0.0",
-  "description": "cross sites JS and Css",
-  "main": "index.js",
+  "name": "canaan",
+  "version": "0.0.0",
   "scripts": {
-    "dev": "parcel watch wp-content/themes/canaan/static/js/index.js --out-dir wp-content/themes/canaan/dist",
-    "build": "NODE_ENV=production parcel build wp-content/themes/canaan/static/js/index.js --out-dir wp-content/themes/canaan/dist --no-source-maps"
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "parcel-bundler": "^1.12.4",
-    "sass": "^1.30.0"
+    "vite": "^2.2.3"
   }
 }
-
-

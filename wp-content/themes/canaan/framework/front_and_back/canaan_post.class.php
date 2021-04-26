@@ -6,7 +6,7 @@ class canaan_post{
     public $data=false;
     public $meta=false;
 
-    public function __construct($post=false,$fetchAll=true) {
+    public function __construct($post=false,$fetchAll=false) {
         if(!$post){
             global $post;
             if(!$post || $post &&!is_object($post)){
@@ -127,6 +127,7 @@ class canaan_post{
     
     public function get_post_term($tax='category', $type ='name'){
         $terms= $this->get_post_terms( $tax);
+        if(is_wp_error($terms)) return;
         if(empty($terms)) return null;
         $term = (array)$terms[0];
         if($term[$type]) return $term[$type];
