@@ -83,14 +83,48 @@ function prefix_nav_menu_classes($items, $menu, $args)
 }
 
 
-/**
- * TODO: Proper way to enqueue scripts and styles.
- */
-function vertias_enqueue_script()
+$BUILD_FOLDER = 'build';
+
+function vite_get_css_urls(string $entry): array
 {
-    if (!$_ENV['IS_DEV']) {
-        wp_enqueue_style('vertias', get_template_directory_uri() . '/dist/index.css', [], canaan_conf::$staticVersionID);
-        wp_enqueue_script('vertias', get_template_directory_uri() . '/dist/index.js', [], canaan_conf::$staticVersionID, true);
+    global $BUILD_FOLDER;
+    $urls = [];
+    $manifest = vite_get_manifest();
+   
+    if (!empty($manifest[$entry]['css'])) {
+        foreach ($manifest[$entry]['css'] as $file) {
+            $urls[] = '/'.$BUILD_FOLDER.'/' . $file;
+        }
+    }
+    return $urls;
+}
+function vite_get_manifest(): array
+{
+    global $BUILD_FOLDER;
+    
+    $build_dir = get_template_directory_uri().'/'.$BUILD_FOLDER;
+    $content = file_get_contents($build_dir . '/manifest.json');
+    return json_decode($content, true);
+}
+function vite_get_js_urls(string $entry): string
+{
+    global $BUILD_FOLDER;
+    $manifest = vite_get_manifest();
+
+    return isset($manifest[$entry])
+    ? '/'.$BUILD_FOLDER.'/' . $manifest[$entry]['file']
+    : '';
+}
+function vite_enqueue_script()
+{
+    if (!$_ENV['IS_DEV'] || $_ENV['IS_DEV']=== 'false') {
+        $js = vite_get_js_urls('wp-content/themes/canaan/static/js/main.js');//cross with vite.confiog.js
+        $csss = vite_get_css_urls('wp-content/themes/canaan/static/js/main.js');//cross with vite.confiog.js
+
+        foreach ($csss as $key => $css) {
+            wp_enqueue_style('canaan', get_template_directory_uri() .$css, []);
+        }
+        wp_enqueue_script('canaan', get_template_directory_uri() . $js, [], canaan_conf::$staticVersionID, true);
     } else{
         ?>
         <!-- if development -->
@@ -99,5 +133,3 @@ function vertias_enqueue_script()
     <?php
     }
 }
-
-add_action('wp_enqueue_scripts', 'vertias_enqueue_script');

@@ -8,6 +8,6 @@ function readEnvFile() {
  const sourcePath = readEnvFile()
   
 let parsedFile = parse(sourcePath);
-console.log(parsedFile)
+console.log('Switched to DEV Mode')
 parsedFile.IS_DEV = 'true'
 fs.writeFileSync('./.env',stringify(parsedFile)) 

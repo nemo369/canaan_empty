@@ -9,7 +9,7 @@ function readEnvFile() {
  const sourcePath = readEnvFile()
   
 let parsedFile = parse(sourcePath);
-console.log(parsedFile)
+console.log('Switched to PROD Mode')
 parsedFile.IS_DEV = 'false'
 fs.writeFileSync('./.env',stringify(parsedFile)) 
 
@@ -21,15 +21,25 @@ const buildFolder = `${__dirname}/../wp-content/themes/canaan/build`;
 
 
 // DELETE EXISTING FILES 
-fs.readdir(buildFolder, (err, files) => {
-    if (err) throw err;
-    for (const file of files) {
-      fs.unlink(path.join(buildFolder, file), err => {
-        if (err) throw err;
+// fs.rmSync(buildFolder, { recursive: true });
+const deleteFolderRecursive = function (directoryPath) {
+  if (fs.existsSync(directoryPath)) {
+      fs.readdirSync(directoryPath).forEach((file, index) => {
+        const curPath = path.join(directoryPath, file);
+        if (fs.lstatSync(curPath).isDirectory()) {
+         // recurse
+          deleteFolderRecursive(curPath);
+        } else {
+          // delete file
+          fs.unlinkSync(curPath);
+        }
       });
+      fs.rmdirSync(directoryPath);
     }
-  });
+  };
 
+deleteFolderRecursive(buildFolder);
+fs.mkdirSync(buildFolder);
 if (!fs.existsSync(orignalFolder)) {
     console.log('PLEASE BUILD PROJECT FIRST');
     return;
