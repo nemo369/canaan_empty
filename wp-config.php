@@ -45,6 +45,9 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
+
+ // Salt - generate new keys here https://api.wordpress.org/secret-key/1.1/salt/
+// !!!!!!!!copy & past new keys from the link above
 define( 'AUTH_KEY',         '#0/@)ZQ3>sPf.fh=[kAlbG#`brcKC:wH+)ArwgbCbPj0qR~<}8$~BhG>pILhXzf-' );
 define( 'SECURE_AUTH_KEY',  ')r>omLA|&7h]ZLa^TIgMHA:]sJON]%s<#SR9p[&<< 8a0{PirnkW3@nF|_oF:_Wa' );
 define( 'LOGGED_IN_KEY',    '.pairpL$!8AI7a#(2pYI)W;uwVW}mx*yOMH8&4i5S`vn<5IJ4IC=K/#O{|o,F:}(' );
