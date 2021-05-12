@@ -133,3 +133,5 @@ function vite_enqueue_script()
     <?php
     }
 }
+
+add_action('wp_enqueue_scripts', 'vite_enqueue_script');
