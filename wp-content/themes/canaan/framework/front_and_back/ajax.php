@@ -26,8 +26,9 @@ function contactus_cb_ajax()
 
     $to = carbon_get_theme_option('misc_email_accounts');
 
-    add_filter('wp_mail_content_type', create_function('', 'return "text/html";'));
-
+    add_filter( 'wp_mail_content_type', function( $content_type ) {
+        return 'text/html';
+    } );
     $email_content = '';
 
     unset($data['pll_load_front']);
