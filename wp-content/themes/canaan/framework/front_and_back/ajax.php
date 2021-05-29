@@ -46,6 +46,7 @@ function contactus_cb_ajax()
 
     $subject = " הודעה מאתר  " . get_bloginfo('name');
 
+    // create_a_lead($email_content,$data['name'] );
     $headers = array('Content-Type: text/html; charset=UTF-8');
     @wp_mail($emails_to, $subject, $email_content, $headers);
     echo json_encode(array('status' => 'sent', 'message' => pll__('ההודעה נשלחה בהצלחה')));
@@ -59,8 +60,35 @@ function field_trans($k)
         case 'phone':
             return 'טלפון';
             break;
+        case 'name':
+            return 'שם מלא';
+            break;
+        case 'address':
+            return 'כתובת';
+            break;
+        case 'show':
+            return 'בחירת הופעה';
+            break;
+        case 'role':
+            return 'תפקיד';
+            break;
+        case 'ticket-type':
+            return 'כרטיס יחיד/זוגי';
+            break;
     }
 
 
     return $k;
+}
+
+function create_a_lead($email_content, $name){
+        // Create a Lead 
+        $args = [
+            'post_title'    => wp_strip_all_tags($name),
+            'post_content'  => $email_content,
+            // 'post_status'   => 'published',
+            'post_type' => 'lead',
+        ];
+        wp_insert_post($args);
+        // Create a Lead 
 }

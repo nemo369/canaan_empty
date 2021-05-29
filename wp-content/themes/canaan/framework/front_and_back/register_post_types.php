@@ -12,8 +12,13 @@ function canaan_register_post_types_cb() {
 	// register_taxonomy( $args['rewrite']['slug'],$args['rewrite']['slug'], $args );
 	// register_taxonomy_for_object_type('writer','post');
 
-	// $args = get_register_post_type_args('כותבים','writer',['menu_icon' => 'dashicons-carrot',],'ים');
-	// register_post_type( $args['rewrite']['slug'], $args );
+	$args = get_register_post_type_args(
+		'Lead',
+		'lead',
+		['menu_icon' => 'dashicons-format-quote', 'supports' => ['title',  'editor','page-attributes'],'show_in_rest' => false,],
+		's'
+	);
+	register_post_type($args['rewrite']['slug'], $args);
        
 }
 /**
