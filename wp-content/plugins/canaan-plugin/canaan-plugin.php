@@ -18,7 +18,7 @@ Text Domain: nemo-plugin
 define('PLUGIN_PATH', plugin_dir_path(__FILE__));
 define('PLUGIN_URL', plugin_dir_url(__FILE__));
 
-require_once dirname(__FILE__) . '/inc/pages/Admin.php';
+require_once dirname(__FILE__) . '/inc/Admin.php';
 
 
 class CanaanPlugin
