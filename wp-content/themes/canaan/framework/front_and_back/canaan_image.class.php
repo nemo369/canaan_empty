@@ -303,4 +303,29 @@ class canaan_image
 }
 
 
+function canaan_add_image_sizes()
+{
+    add_theme_support('post-thumbnails');
+    // add_image_size('1920X580', 1920, 580, true);
+    $images = [
+        ['name' => '250X250', 'crop' => true]
+    ];
+    foreach ($images as $key => $img) {
+        $sizes = explode('X', $img['name']);
+        add_image_size($img['name'], $sizes[0], $sizes[1], $img['crop']);
+    }
+}
+add_action('after_setup_theme', 'canaan_add_image_sizes');
 
+
+
+
+/*
+ * Allow SVG uploads
+ */
+function add_mime_types($mimes)
+{
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter('upload_mimes', 'add_mime_types');

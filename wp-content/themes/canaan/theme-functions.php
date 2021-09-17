@@ -18,24 +18,11 @@ add_action('wp_loaded', function () {
         die();
     }
 });
-function canaan_add_image_sizes()
-{
-    add_theme_support('post-thumbnails');
-    // add_image_size('1920X580', 1920, 580, true);
-    $images = [
-        ['name' => '250X250', 'crop' => true]
-    ];
-    foreach ($images as $key => $img) {
-        $sizes = explode('X', $img['name']);
-        add_image_size($img['name'], $sizes[0], $sizes[1], $img['crop']);
-    }
-}
-add_action('after_setup_theme', 'canaan_add_image_sizes');
+
 
 add_action('init', 'canaan_init');
 function canaan_init()
 {
-
 
     global $pagenow;
     if (WP_DEBUG === true) {
@@ -72,17 +59,6 @@ remove_action('network_admin_notices', 'update_nag', 3);
 //     }
 //     return $result;
 // });
-
-
-/*
- * Allow SVG uploads
- */
-function add_mime_types($mimes)
-{
-    $mimes['svg'] = 'image/svg+xml';
-    return $mimes;
-}
-add_filter('upload_mimes', 'add_mime_types');
 
 // FOR use with canaan_get_menu_array 
 add_filter('wp_get_nav_menu_items', 'prefix_nav_menu_classes', 10, 3);
