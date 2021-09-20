@@ -75,7 +75,7 @@ class canaan_post{
         if (!empty ($this->data->post_excerpt)) {
             $use_excerpt = $this->data->post_excerpt;
         } else {
-            $use_excerpt =$this->get_contnet();
+            $use_excerpt =$this->get_content();
         }
 
         if (preg_match('/<!--more(.*?)?-->/', $use_excerpt, $matches)) {

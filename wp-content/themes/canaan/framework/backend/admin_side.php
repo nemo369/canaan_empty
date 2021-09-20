@@ -49,15 +49,3 @@ function mwpage_fetch_events_out_page_cb()
 }
 
 
- 
-/*
- * Add the duplicate link to action list for post_row_actions
- */
-function rd_duplicate_post_link( $actions, $post ) {
-	if (current_user_can('edit_posts')) {
-		$actions['duplicate'] = '<a href="' . wp_nonce_url('admin.php?action=rd_duplicate_post_as_draft&post=' . $post->ID, basename(__FILE__), 'duplicate_nonce' ) . '" title="Duplicate this item" rel="permalink">Duplicate me</a>';
-	}
-	return $actions;
-}
- 
-add_filter( 'post_row_actions', 'rd_duplicate_post_link', 10, 2 );

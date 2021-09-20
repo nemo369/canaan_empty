@@ -17,7 +17,6 @@ defined('ABSPATH') || die();
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php canaan_post_thumbnail(); ?>
 
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>

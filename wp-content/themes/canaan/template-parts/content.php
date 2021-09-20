@@ -23,9 +23,8 @@ defined('ABSPATH') || die();
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php canaan_post_thumbnail(); ?>
 
-	<div class="entry-content wp-content">
+	<div class="entry-content prose inner-width">
 		<?php
 		the_content( sprintf(
 			wp_kses(
