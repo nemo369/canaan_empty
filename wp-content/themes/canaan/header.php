@@ -39,7 +39,7 @@ if (!defined('ABSPATH')) {
 
 <body <?php body_class(); ?>>
     <div id="app">
-        <div class="sitcky-footer">
+        <div class="sticky-footer">
             <header>
 
             </header>

@@ -2,7 +2,7 @@
 defined('ABSPATH') || die();
 ?>
 </div>
-<!-- end of sitcky-footer -->
+<!-- end of sticky-footer -->
 
 <footer>
     <div class="bottom tac">
