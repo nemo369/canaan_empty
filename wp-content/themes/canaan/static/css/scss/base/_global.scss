@@ -1,0 +1,14 @@
+.sticky-footer{
+    min-height: calc(100vh - 442px);
+}
+
+.inner-width{
+    max-width: 1440px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 28px;
+    padding-left: 28px;
+}
+.prose{
+    max-width: 970px; /* //915px + padding */
+}

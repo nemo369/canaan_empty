@@ -1,4 +1,17 @@
-/* ./src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    :root {
+        --full-height: 100vh;
+        --black: #404040;
+        --white: #fff;
+    }
+
+    html,
+    body {
+        font-family: "Assistant", sans-serif;
+        color: var(--full-height, #404040);
+    }
+}

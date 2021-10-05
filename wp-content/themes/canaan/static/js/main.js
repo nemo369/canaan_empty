@@ -1,4 +1,5 @@
 import '../css/tailwind.css';
+import '../css/style.scss';
 
 
 const components = [
