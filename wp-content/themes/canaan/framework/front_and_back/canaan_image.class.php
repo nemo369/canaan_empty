@@ -195,6 +195,8 @@ public function get_img_tag_by_size($size_slug, $lazy=true)
 
     if ($alt != false && !empty ($alt)) {
         $html .= ' alt="'.esc_attr($alt).'" ';
+    } else{
+        $html .= ' alt="' . esc_attr($title) . '" ';
     }
 
 
@@ -223,6 +225,8 @@ public function get_img_tag_sized($width = false, $height = false, $addClass = '
 
     if ($alt != false && !empty ($alt)) {
         $html .= ' alt="'.esc_attr($alt).'" ';
+    }else{
+        $html .= ' alt="' . esc_attr($title) . '" ';
     }
 
     $html .= ' '.($islazey ? 'loading="lazy" ' : '').' />';
@@ -248,6 +252,8 @@ public function get_img_html($size_slug = 'full', $lazy = true, $class = ''){
     $html .= '<img src="'.esc_attr($url).'" ';
     if ($alt != false && !empty ($alt)) {
         $html .= ' alt="'.esc_attr($alt).'" ';
+    }else{
+        $html .= ' alt="' . esc_attr($title) . '" ';
     }
   
     $html .= ' width="'.$this->get_width().'" height="'.$this->get_height().'"';
@@ -286,6 +292,8 @@ public function get_html_sized_wcaption($size_slug = null, $addClass ='', $islaz
 
     if ($alt != false && !empty ($alt)) {
         $html .= ' alt="'.esc_attr($alt).'" ';
+    }else{
+        $html .= ' alt="' . esc_attr($title) . '" ';
     }
 
 
