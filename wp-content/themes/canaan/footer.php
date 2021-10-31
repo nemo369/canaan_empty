@@ -6,7 +6,7 @@ defined('ABSPATH') || die();
 
 <footer>
     <div class="bottom tac">
-        Dev: <a class="nemo-link" target="_blank" href="https://www.naamanfrenkel.dev" rel="noopener noreferrer">nemo</a>
+        Dev: <a class="nemo-hover" target="_blank" href="https://www.naamanfrenkel.dev" rel="noopener noreferrer">nemo</a>
     </div>
 
 </footer>
