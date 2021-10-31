@@ -2,9 +2,11 @@
 defined('ABSPATH') || die();
 
 
-
 if (function_exists('pll_register_string')) {
-    $strings = [];
+    $content = file_get_contents(__DIR__.'/en.json');
+    $json = (array) json_decode($content, true);
+   
+    $strings = $json;
     $strings[] = '';
     $strings[] = '';
 

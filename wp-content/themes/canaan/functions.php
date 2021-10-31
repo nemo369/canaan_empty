@@ -8,7 +8,6 @@ if (!class_exists('canaan_conf')) {
     }
 }
 
-include_once(dirname(__FILE__) . '/vite-loader.php');
 include_once(dirname(__FILE__) . '/theme-functions.php');
 include_once(dirname(__FILE__) . '/framework/framework.php');
 include_once(dirname(__FILE__) . '/carbon/carbon.php');

@@ -5,9 +5,10 @@ if ( !defined('ABSPATH') ){
 }
 
 
-
+// https://developer.wordpress.org/resource/dashicons/#editor-aligncenter
 add_action( 'init', 'canaan_register_post_types_cb' );
 function canaan_register_post_types_cb() {
+
 	// $args = get_register_taxonomy_args('כותבים','writer','category',['menu_icon' => 'dashicons-carrot',],'ים');
 	// register_taxonomy( $args['rewrite']['slug'],$args['rewrite']['slug'], $args );
 	// register_taxonomy_for_object_type('writer','post');

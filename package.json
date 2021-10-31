@@ -4,9 +4,11 @@
   "scripts": {
     "dev": "node scripts/beforeDev.js && vite",
     "build": "vite build && node scripts/afterBuild.js",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "translations-scan": "i18next-scanner --config scripts/i18next-scanner.config.engine.js wp-content/themes/canaan/**/*.php"
   },
   "devDependencies": {
+    "i18next-scanner": "^3.1.0",
     "autoprefixer": "^10.3.4",
     "edit-dotenv": "^1.0.4",
     "envfile": "^6.17.0",
