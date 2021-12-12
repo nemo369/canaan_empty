@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
 }
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> class="<?= boolval($_ENV['IS_DEV']) ? 'axe-is-dev' : '';?>">
 
 <head>
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />

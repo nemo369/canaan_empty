@@ -10,7 +10,7 @@ function readEnvFile() {
   
 let parsedFile = parse(sourcePath);
 console.log('Switched to PROD Mode')
-parsedFile.IS_DEV = 'false'
+parsedFile.IS_DEV = ''
 fs.writeFileSync('./.env',stringify(parsedFile)) 
 
 

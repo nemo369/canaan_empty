@@ -1,5 +1,6 @@
 import '../css/tailwind.css';
 import '../css/style.scss';
+import AxeCheck from './AxeCheck';
 
 
 const components = [
@@ -8,6 +9,11 @@ const components = [
   //   selector: 'html',
   //   options: {},
   // },
+  {
+    Class: AxeCheck,
+    selector: ".axe-is-dev",
+    options: {},
+  },
 ];
 
 

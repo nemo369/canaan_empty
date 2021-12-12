@@ -1,5 +1,7 @@
 class CHAGNE_MY_NAME{
     constructor(el, options){
+        console.log(el);
+
     }
 }
 
