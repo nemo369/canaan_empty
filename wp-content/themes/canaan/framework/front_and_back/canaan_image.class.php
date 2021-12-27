@@ -50,7 +50,7 @@ function __construct($img_id, $size = 'full')
         $img = wp_get_attachment_image_src($this->ID, $size);
         if ($img === false) {
             $pst = get_post($img_id);
-            if ($pst->post_type == 'attachment' && $pst->post_mime_type == 'application/pdf') {
+            if ($pst && $pst->post_type == 'attachment' && $pst->post_mime_type == 'application/pdf') {
                 $this->src_full = wp_get_attachment_url($img_id);
             }
             if ($this->src_full !== false) {
