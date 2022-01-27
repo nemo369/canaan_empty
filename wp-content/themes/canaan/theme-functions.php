@@ -69,3 +69,51 @@ function prefix_nav_menu_classes($items, $menu, $args)
     return $items;
 }
 
+
+
+function order_posts_by_menu_order($query)
+{
+    if (!is_admin() && $query->is_main_query()) {
+        $query->set('orderby', 'menu_order');
+        $query->set('order', 'asc');
+    }
+
+    return $query;
+}
+// add_action('pre_get_posts', 'order_posts_by_menu_order');
+
+// Disable Automatic Update Email Notification Using Code 
+add_filter('auto_theme_update_send_email', '__return_false');
+add_filter('auto_plugin_update_send_email', '__return_false');
+add_filter('auto_core_update_send_email', 'wpb_stop_auto_update_emails', 10, 4);
+
+function wpb_stop_update_emails($send, $type, $core_update, $result)
+{
+    if (!empty($type) && $type == 'success') {
+        return false;
+    }
+    return true;
+}
+
+//Disable the new user notification sent to the site admin
+function smartwp_disable_new_user_notifications()
+{
+    //Remove original use created emails
+    remove_action('register_new_user', 'wp_send_new_user_notifications');
+    remove_action('edit_user_created_user', 'wp_send_new_user_notifications', 10, 2);
+
+    //Add new function to take over email creation
+    add_action('register_new_user', 'smartwp_send_new_user_notifications');
+    add_action('edit_user_created_user', 'smartwp_send_new_user_notifications', 10, 2);
+}
+function smartwp_send_new_user_notifications($user_id, $notify = 'user')
+{
+    if (empty($notify) || $notify == 'admin') {
+        return;
+    } elseif ($notify == 'both') {
+        //Only send the new user their email, not the admin
+        $notify = 'user';
+    }
+    wp_send_new_user_notifications($user_id, $notify);
+}
+add_action('init', 'smartwp_disable_new_user_notifications');

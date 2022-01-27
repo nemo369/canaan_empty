@@ -13,6 +13,7 @@ class CanaanPluginAdmin
     {
         add_action('admin_action_rd_duplicate_post_as_draft', [$this, 'duplicate_post_as_draft']);
         add_filter('post_row_actions', [$this, 'duplicate_post_link'], 10, 2);
+        add_filter('page_row_actions', [$this, 'duplicate_post_link'], 10, 2);
     }
 
     public function duplicate_post_link($actions, $post)
