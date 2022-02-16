@@ -75,7 +75,7 @@ function order_posts_by_menu_order($query)
 {
     if (!is_admin() && $query->is_main_query()) {
         $query->set('orderby', 'menu_order');
-        $query->set('order', 'asc');
+        $query->set('order', 'desc');
     }
 
     return $query;
