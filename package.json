@@ -8,20 +8,19 @@
     "translations-scan": "i18next-scanner --config scripts/i18next-scanner.config.engine.js wp-content/themes/canaan/**/*.php"
   },
   "devDependencies": {
-    "i18next-scanner": "^3.1.0",
     "autoprefixer": "^10.3.4",
+    "axe-core": "^4.3.5",
     "edit-dotenv": "^1.0.4",
     "envfile": "^6.17.0",
-    "postcss": "^8.3.6",
-    "sass": "^1.42.1",
-    "tailwindcss": "^2.2.15",
-    "vite": "^2.5.8",
-    "@tailwindcss/forms": "^0.3.3",
-    "@tailwindcss/typography": "^0.4.1",
-    "axe-core": "^4.3.5"
-
+    "i18next-scanner": "^3.1.0",
+    "tailwindcss": "^3.0.23",
+    "@tailwindcss/forms": "^0.4.0",
+    "@tailwindcss/typography": "^0.5.2",
+    "postcss": "^8.4.6",
+    "sass": "^1.49.8",
+    "vite": "^2.8.4"
   },
   "dependencies": {
-
+ 
   }
 }
