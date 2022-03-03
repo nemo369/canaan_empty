@@ -7,8 +7,8 @@ use Carbon_Fields\Field;
 add_action('carbon_fields_register_fields', 'crb_attach_page_options');
 function crb_attach_page_options()
 {
-    $prefix = 'page-home';
-    $post_template =  $prefix.'.php';
+    $prefix = 'home';
+    $post_template =  'page-templates/' . $prefix . '.php';
     $metaBox = Container::make('post_meta', 'הגדרות כלליות')->where('post_template', '=', $post_template);
     $metaBox->add_fields(array(
         Field::make( 'date', $prefix.'date', 'תאריך' ),
