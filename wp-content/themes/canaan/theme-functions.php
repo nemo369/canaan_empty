@@ -40,6 +40,8 @@ function canaan_init()
 function canaan_theme_support()
 {
     register_nav_menu('primary',  'Primary Menu');
+
+    add_theme_support( 'title-tag' );
 }
 add_action('after_setup_theme', 'canaan_theme_support');
 remove_action('wp_head', 'rsd_link');
