@@ -1,0 +1,19 @@
+{
+  "root": true,
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "env": {
+    "es6": true
+  },
+  "rules": {
+    "one-var": "off",
+    "//": [
+      "off",
+      "ResourceLoader's `packageFiles` do not require wrapping but the `module` option is only available in ES6+."
+    ],
+    "no-implicit-globals": "off",
+    "compat/compat": "warn"
+  }
+}
