@@ -11,8 +11,7 @@ if($lazy){
     // return '<img loading="lazy" data-src="'.$img->get_sized_url().'" class="lazyload" width="'.$img->get_width().'" height="'.$img->get_height().'" alt="'.esc_attr( $img->get_alt()).'">';
     return $img->get_img_html($size, $lazy ,$class);
 } else{
-    return '<img  src="'.$img->get_sized_url($size).'" alt="'.esc_attr( $img->get_alt()).'" class=" '.$class.'">';
-}
+    return '<img  src="' . $img->get_sized_url($size) . '" alt="' . esc_attr($img->get_alt()) . '"  title="' . esc_attr($img->get_caption()) . '" class=" ' . $class . '">';
 }
 function get_img_src($id, $size ='full'){
 $img= new canaan_image($id, $size);
@@ -237,38 +236,6 @@ public function get_img_tag_sized($width = false, $height = false, $addClass = '
 
 public function get_img_html($size_slug = 'full', $lazy = true, $class = ''){
     $img = wp_get_attachment_image_src($this->ID, $size_slug);
-    
-    if ($img === false || !is_array($img)) {
-        $url = $this->src_full;
-    } else {
-        $url = $img[0];
-    }
-
-    $alt = $this->get_alt();
-    $title = $this->get_title();
-    $caption = $this->get_caption();
-
-    $html = '';
-    $html .= '<img src="'.esc_attr($url).'" ';
-    if ($alt != false && !empty ($alt)) {
-        $html .= ' alt="'.esc_attr($alt).'" ';
-    }else{
-        $html .= ' alt="' . esc_attr($title) . '" ';
-    }
-  
-    $html .= ' width="'.$this->get_width().'" height="'.$this->get_height().'"';
-
-    $html .= ' class=" '.$class.'"';
-    $html .= ' '.($lazy ? 'loading="lazy" ' : '').' />';
-
-
-
-    return $html;
-}
-public function get_html_sized_wcaption($size_slug = null, $addClass ='', $islazey = false)
-{
-
-    $img = wp_get_attachment_image_src($this->ID, $size_slug);
 
     if ($img === false || !is_array($img)) {
         $url = $this->src_full;
@@ -276,38 +243,33 @@ public function get_html_sized_wcaption($size_slug = null, $addClass ='', $islaz
         $url = $img[0];
     }
 
+    $is_gif = str_ends_with(basename($url), '.gif');
+    if ($is_gif) {
+        $img = wp_get_attachment_image_src($this->ID, 'full');
+        $url = $img[0];
+    }
+
+
+
     $alt = $this->get_alt();
     $title = $this->get_title();
     $caption = $this->get_caption();
 
     $html = '';
-    if (mb_strlen($caption)) {
-        $html .= '<div class="img_w_caption">';
-    }
-
-    $html .= '<img src="'.esc_attr($url).'" ';
-    if (!empty ($addClass)) {
-        $html .= ' class="'.$addClass.'" ';
-    }
-
-    if ($alt != false && !empty ($alt)) {
-        $html .= ' alt="'.esc_attr($alt).'" ';
-    }else{
+    $html .= '<img src="' . esc_attr($url) . '" ';
+    if ($alt != false && !empty($alt)) {
+        $html .= ' alt="' . esc_attr($alt) . '" ';
+    } else {
         $html .= ' alt="' . esc_attr($title) . '" ';
     }
 
+    $html .= ' width="' . $this->get_width() . '" height="' . $this->get_height() . '"';
 
-    $html .= ' '.($islazey ? 'loading="lazy" ' : '').' />';
-
-    $html .= ' />';
-
-
-    if (mb_strlen($caption)) {
-        $html .= '<p class="img_caption_gen">'.$caption.'</p></div>';
-    }
-
-
+    $html .= ' title="' . esc_attr($caption) . '"';
+    $html .= ' class=" ' . $class . '"';
+    $html .= ' ' . ($lazy ? 'loading="lazy" ' : '') . ' />';
     return $html;
+
 }
 }
 
