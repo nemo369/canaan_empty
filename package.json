@@ -15,11 +15,11 @@
     "edit-dotenv": "^1.0.4",
     "envfile": "^6.17.0",
     "i18next-scanner": "^3.1.0",
-    "postcss": "^8.4.6",
+    "postcss": "^8.4.14",
     "sass": "^1.49.8",
     "vite": "^2.8.4"
   },
   "dependencies": {
-    "tailwindcss": "^3.0.24"
+    "tailwindcss": "^3.1.3"
   }
 }
