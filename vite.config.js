@@ -7,7 +7,7 @@ export default {
       // outDir: themeDir + '/dist',
       rollupOptions: {
         // overwrite default .html entry
-        input: '/wp-content/themes/canaan/static/js/main.js'
+        input: '/wp-content/themes/canaan/static/js/main.ts'
       }
     },
     server: {

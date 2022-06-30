@@ -36,8 +36,8 @@ function vite_get_js_urls(string $entry): string
 function vite_enqueue_script()
 {
     if (!$_ENV['IS_DEV'] || $_ENV['IS_DEV']=== 'false') {
-        $js = vite_get_js_urls('wp-content/themes/canaan/static/js/main.js');//cross with vite.confiog.js
-        $csss = vite_get_css_urls('wp-content/themes/canaan/static/js/main.js');//cross with vite.confiog.js
+        $js = vite_get_js_urls('wp-content/themes/canaan/static/js/main.ts');//cross with vite.confiog.js
+        $csss = vite_get_css_urls('wp-content/themes/canaan/static/js/main.ts');//cross with vite.confiog.js
 
         foreach ($csss as $key => $css) {
             wp_enqueue_style('canaan', get_template_directory_uri() .$css, []);
@@ -47,7 +47,7 @@ function vite_enqueue_script()
         ?>
         <!-- if development -->
         <script type="module" src="http://localhost:3000/@vite/client"></script>
-        <script type="module" src="http://localhost:3000/wp-content/themes/canaan/static/js/main.js"></script>
+        <script type="module" src="http://localhost:3000/wp-content/themes/canaan/static/js/main.ts"></script>
     <?php
     }
 }
