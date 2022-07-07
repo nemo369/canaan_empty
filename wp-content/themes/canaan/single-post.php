@@ -14,8 +14,8 @@ $pid=$mainObj->get_ID();
 get_header();
 
 ?>
-<main  class="col-1-1">
-    <article class="col-1-1">
+<main  class="">
+    <article class="">
     </article>
 
     <aside>

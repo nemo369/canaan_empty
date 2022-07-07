@@ -35,6 +35,8 @@ define( 'DB_CHARSET', 'utf8' );
 
 /** The Database Collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
+define( 'ALLOW_UNFILTERED_UPLOADS', true );
+define( 'DISALLOW_FILE_EDIT', true ); // Disable File Editor - Security > Settings > WordPress Tweaks > File Editor
 
 /**#@+
  * Authentication Unique Keys and Salts.
@@ -79,7 +81,7 @@ $table_prefix = $_ENV['DB_PREFIX'];
  *
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', $_ENV['WP_DEBUG'] );
+define( 'WP_DEBUG', $_ENV['WP_DEBUG'] == 'true' ? true: false );
 
 
 

@@ -2,6 +2,8 @@ import '../css/tailwind.css';
 import '../css/style.scss';
 import AxeCheck from './AxeCheck';
 
+// declare var __mainData: MainData;
+
 
 const components = [
   // {

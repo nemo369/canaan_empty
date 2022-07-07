@@ -20,7 +20,7 @@ $mainObj=new canaan_post($post);
 get_header();
  
 ?>
-<main  class="col-1-1">
+<main  class="">
 
 </main>
 
